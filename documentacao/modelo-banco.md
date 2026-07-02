@@ -44,7 +44,7 @@ hive  -->  apiario : apiary_id:id
 hive  -->  queen : queen_identification_number:identification_number
 ```
 
-> Imagem do diagrama disponível em `../evidencias/diagrama-banco.png`
+> Imagem do diagrama disponível em `../evidencias/db_apiario.png`
 
 ---
 
