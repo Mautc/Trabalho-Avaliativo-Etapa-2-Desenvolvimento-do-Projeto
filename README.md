@@ -4,7 +4,7 @@
 
 | Nome | Função |
 |------|--------|
-| Maurilio Thomaz Coloda | Frontend e integração com a API |
+| Maurilio Tomazelli Coloda | Frontend e integração com a API |
 | Davi Samuel Schneider | Backend (API REST com Spring Boot) |
 | Luiz Felipe Ramos Mendes | Documentação e testes |
 

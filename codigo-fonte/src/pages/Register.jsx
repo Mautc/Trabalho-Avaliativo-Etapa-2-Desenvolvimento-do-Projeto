@@ -33,7 +33,11 @@ export default function Register() {
       setSucesso(true);
       setTimeout(() => navigate('/login'), 2000);
     } catch (err) {
-      setErro(err.message || 'Erro ao cadastrar. Verifique os dados e tente novamente.');
+      if (err.status === 409) {
+        setErro('Nome de usuário já está em uso. Escolha outro.');
+      } else {
+        setErro(err.message || 'Erro ao cadastrar. Verifique os dados e tente novamente.');
+      }
     } finally {
       setCarregando(false);
     }

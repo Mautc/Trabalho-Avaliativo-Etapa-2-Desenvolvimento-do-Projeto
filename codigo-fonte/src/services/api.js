@@ -18,7 +18,28 @@ async function request(method, path, body) {
   const text = await res.text();
 
   if (!res.ok) {
-    throw new Error(text || `Erro ${res.status}`);
+    let mensagem = `Erro ${res.status}`;
+
+    try {
+      const apiError = JSON.parse(text);
+      if (apiError.message) mensagem = apiError.message;
+    } catch {
+      if (text) mensagem = text;
+    }
+
+    if (res.status === 401) {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+      return;
+    }
+
+    if (res.status === 403) {
+      mensagem = 'Você não tem permissão para realizar esta ação.';
+    }
+
+    const err = new Error(mensagem);
+    err.status = res.status;
+    throw err;
   }
 
   return text ? JSON.parse(text) : null;
